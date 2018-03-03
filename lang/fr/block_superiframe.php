@@ -35,5 +35,26 @@ $string['descconfig'] = 'Description de la section de configuration';
 $string['pagelayout_details'] = '';
 $string['pagelayout'] = 'Disposition de la page';
 
+//URL
+$string['urlheaderconfig']="Configuration de l'URL";
+$string['urldescconfig']='Choisissez votre page';
+$string['url'] = "URL de l'iFrame";
+$string['url_details'] = "Ceci est l'URL de la page à afficher dans le bloc superiFrame";
+
+//Aspect
+$string['aspectheaderconfig']="Configuration de l'aspect de l'iframe";
+$string['aspectdescconfig']="Changez l'aspect de l'iframe sélectionné";
+$string['width']='Largeur';
+$string['width_details']='';
+$string['height']='Hauteur';
+$string['height_details']='';
+// Just for fun
+$string['bordercolor']='Couleur de la bordure';
+$string['bordercolor_details']='';
+$string['borderwidth']='Épaisseur de la bordure';
+$string['borderwidth_details']='';
+
 // Added to test language files
 $string['welcomeuser'] = 'Bienvenue dans superiframe, {$a->firstname} {$a->lastname}';
+$string['gotosuperiframe'] = 'Go to SuperiFrame';
+

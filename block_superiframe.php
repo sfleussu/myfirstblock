@@ -93,6 +93,10 @@ class block_superiframe extends block_base {
 
         $this->content->text .= '<br />' . get_string('welcomeuser',
                                                       'block_superiframe',$USER);
+
+        $this->content->text .= '<br /><a href="' . $CFG->wwwroot . 
+        	'/blocks/superiframe/view.php">' . get_string('gotosuperiframe', 'block_superiframe') . '</a>';
+
         return $this->content;
     }
 
