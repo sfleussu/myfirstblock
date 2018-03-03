@@ -1,3 +1,6 @@
+// List of all function found for html_writer with parameters
+// For more details, see the file in lib directory : outputcomponents.php
+
 tag($tagname, $contents, array $attributes = null)
 start_tag($tagname, array $attributes = null)
 end_tag($tagname)
