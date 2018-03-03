@@ -8,6 +8,7 @@ require_login();
 //get our config
 $def_config = get_config('block_superiframe');
 
+// construct $PAGE
 $usercontext = context_user::instance($USER->id);
 $PAGE->set_course($COURSE);
 $PAGE->set_url('/blocks/superiframe/view.php');
@@ -16,22 +17,8 @@ $PAGE->set_pagelayout('course');
 $PAGE->set_title(get_string('pluginname', 'block_superiframe'));
 $PAGE->navbar->add(get_string('pluginname', 'block_superiframe'));
 
-
-// start output to browser
-echo $OUTPUT->header();
-echo $OUTPUT->heading(get_string('pluginname', 'block_superiframe'),5);
-
-// Some content goes here
-echo "I am some dummy content. Get rid of me fast!";    
-echo '<br>' . fullname($USER);
-echo $OUTPUT->user_picture($USER).'<br>';
-$src=$def_config->url;
-$width=$def_config->width;
-$height=$def_config->height;
-$borderwidth=$def_config->borderwidth;
-$bordercolor=$def_config->bordercolor;
-echo "<iframe src='$src' height='$height' width='$width' style='border:$borderwidth $bordercolor solid'></iframe>";
-
-//send footer out to browser
-echo $OUTPUT->footer();
+// call renderer for viewing page
+$renderer = $PAGE->get_renderer('block_superiframe');
+$renderer->display_view_page($def_config->url, $def_config->width, $def_config->height,
+                             $def_config->borderwidth, $def_config->bordercolor);
 return;

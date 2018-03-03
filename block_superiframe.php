@@ -46,13 +46,14 @@ to register your plugin in the plugins database
  */
 
 class block_superiframe extends block_base {
- 
+
     /**
      *  Initialise the block
-     */    
+     */
     function init() {
         $this->title = get_string('pluginname', 'block_superiframe');
     }
+
     /**
      * Add some text content to our block
      */
@@ -73,29 +74,10 @@ class block_superiframe extends block_base {
         $this->content->icons = array();
         $this->content->footer = '';
         $this->content->text = '';
-  
-        // block should be on course page
-        $currentcontext = $this->page->context->get_course_context(false);
-
-        if (empty($currentcontext)) {
-            return $this->content;
-        }
-        
-        // Block could be on front page
-        if ($this->page->course->id == SITEID) {
-            $this->content->text .= "site context <br >";
-        }
-        // Check the block config string
-        if (! empty($this->config->text)) {
-            $this->content->text .= $this->config->text;
-        }
 
 
-        $this->content->text .= '<br />' . get_string('welcomeuser',
-                                                      'block_superiframe',$USER);
-
-        $this->content->text .= '<br /><a href="' . $CFG->wwwroot . 
-        	'/blocks/superiframe/view.php">' . get_string('gotosuperiframe', 'block_superiframe') . '</a>';
+        $renderer = $this->page->get_renderer('block_superiframe');
+        $this->content->text = $renderer->fetch_block_content();
 
         return $this->content;
     }
